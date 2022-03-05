@@ -38,4 +38,18 @@ public class UserDaoService {
 		}
 		return null;
 	}
+	
+	public User deleteById(int id) {
+		User deletedUser = null;
+		List<User>newUsers = new ArrayList<>();
+		for(User user: users) {
+			if(user.getId() != id) {
+				newUsers.add(user);
+			} else {
+				deletedUser = user;
+			}
+		}
+		users = newUsers;
+		return deletedUser;
+	}
 }
